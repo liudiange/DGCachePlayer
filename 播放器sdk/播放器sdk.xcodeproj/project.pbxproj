@@ -19,6 +19,7 @@
 		180E537621A692F8001FBAA6 /* DGResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 180E537521A692F8001FBAA6 /* DGResourceLoader.m */; };
 		180E537921A6931B001FBAA6 /* DGDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 180E537821A6931B001FBAA6 /* DGDownloadManager.m */; };
 		180E537F21A69D9A001FBAA6 /* DGCacheMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 180E537E21A69D9A001FBAA6 /* DGCacheMusicModel.m */; };
+		1836915A21C789F300D2E66D /* DGMusicPlayerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1836915921C789F300D2E66D /* DGMusicPlayerFramework.framework */; };
 		1845407721AFCDD300D312D1 /* DGStrFileHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845407621AFCDD300D312D1 /* DGStrFileHandle.m */; };
 		1846FAF521B62A3000870B53 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1846FAF421B62A3000870B53 /* MobileCoreServices.framework */; };
 		1876C07B21B8FC49000E1D21 /* DGCacheVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1876C07A21B8FC49000E1D21 /* DGCacheVideoPlayer.m */; };
@@ -58,6 +59,7 @@
 		180E537821A6931B001FBAA6 /* DGDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGDownloadManager.m; sourceTree = "<group>"; };
 		180E537D21A69D9A001FBAA6 /* DGCacheMusicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGCacheMusicModel.h; sourceTree = "<group>"; };
 		180E537E21A69D9A001FBAA6 /* DGCacheMusicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGCacheMusicModel.m; sourceTree = "<group>"; };
+		1836915921C789F300D2E66D /* DGMusicPlayerFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DGMusicPlayerFramework.framework; sourceTree = "<group>"; };
 		1845407521AFCDD300D312D1 /* DGStrFileHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGStrFileHandle.h; sourceTree = "<group>"; };
 		1845407621AFCDD300D312D1 /* DGStrFileHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGStrFileHandle.m; sourceTree = "<group>"; };
 		1846FAEC21B626F200870B53 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1836915A21C789F300D2E66D /* DGMusicPlayerFramework.framework in Frameworks */,
 				1846FAF521B62A3000870B53 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +154,7 @@
 		180E535B21A688C4001FBAA6 /* musicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				1836915921C789F300D2E66D /* DGMusicPlayerFramework.framework */,
 				180E535C21A688C4001FBAA6 /* DGMusicManager.h */,
 				180E535E21A688C4001FBAA6 /* DGMusicManager.m */,
 				180E535D21A688C4001FBAA6 /* DGMusicInfo.h */,
@@ -454,6 +458,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SJ2F2TLP77;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/播放器sdk/musicPlayer",
+				);
 				INFOPLIST_FILE = "播放器sdk/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -472,6 +480,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SJ2F2TLP77;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/播放器sdk/musicPlayer",
+				);
 				INFOPLIST_FILE = "播放器sdk/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
