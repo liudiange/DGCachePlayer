@@ -67,7 +67,6 @@
  */
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(nullable NSError *)error{
     
-    NSLog(@"下载完成了");
     if (self.cancel) return;
     
     if (error) {
@@ -100,9 +99,8 @@ didReceiveResponse:(NSURLResponse *)response
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
     NSString *contentRange = [[httpResponse allHeaderFields] objectForKey:@"Content-Range"];
     NSString *fileLength = [[contentRange componentsSeparatedByString:@"/"] lastObject];
-    self.fileLenth = fileLength > 0 ? fileLength.integerValue : response.expectedContentLength;
+    self.fileLenth = (NSUInteger)(fileLength.integerValue > 0 ? fileLength.integerValue : response.expectedContentLength);
     
-    NSLog(@"文件的长度 ：%zd",self.fileLenth);
 }
 
 /**self.cacheLength

@@ -70,17 +70,14 @@
     
     // 将loadingRequest 添加进数组
     [self.requestList addObject:loadingRequest];
-    NSLog(@"loadingRequest.dataRequest.requestedOffset :%lld ------ loadingRequest.dataRequest.currentOffset: %lld ---  self.downloadManager.requestOffset :%zd",loadingRequest.dataRequest.requestedOffset,loadingRequest.dataRequest.currentOffset,self.downloadManager.requestOffset);
     // 进行判断
     if (self.downloadManager) {
         if (loadingRequest.dataRequest.requestedOffset >= self.downloadManager.requestOffset && loadingRequest.dataRequest.requestedOffset < self.downloadManager.requestOffset + self.downloadManager.cacheLength) {
-            NSLog(@"能进入这个判断 说明当前loadingrequest 是缓存好了的");
             // 能进入这个判断 说明当前loadingrequest 是缓存好了的
             [self haveCacheProcessRequestList];
         }else{
             // 不符合缓存规定了 不再缓存了
             if (self.isSeek) {
-                NSLog(@"不符合缓存规定了 不再缓存了");
                 [self startNewLoadrequest:loadingRequest cache:NO];
             }
         }

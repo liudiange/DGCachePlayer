@@ -106,8 +106,6 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     if ([keyPath isEqualToString:DGPlayerStatusKey]) { // 监听播放器的状态
         
-        NSLog(@"当前的播放状态 %zd",self.playerItem.status);
-        
         switch (self.playerItem.status) {
             case AVPlayerStatusReadyToPlay:
             {
@@ -157,7 +155,7 @@
         }
         
         if (self.isTurePlay && self.player.rate == 1) {
-            NSLog(@"进入了 ---------");
+    
             self.innerCurrentPlayStatus = DGPlayerStatusPlay;
             if ([self.DGDelegate respondsToSelector:@selector(DGPlayerChangeStatus:)]) {
                 [self.DGDelegate DGPlayerChangeStatus:self.innerCurrentPlayStatus];
@@ -188,7 +186,7 @@
             }
         }
     }else if([keyPath isEqualToString:DGPlayerBufferEmty]){ //没有足够的缓冲区了，监听播放播放器在缓冲区的状态
-        NSLog(@"没有足够的缓冲区了，监听播放播放器在缓冲区的状态");
+        
         self.innerCurrentPlayStatus = DGPlayerStatusBuffer;
         if ([self.DGDelegate respondsToSelector:@selector(DGPlayerChangeStatus:)]) {
             [self.DGDelegate DGPlayerChangeStatus:DGPlayerStatusBuffer];
@@ -650,7 +648,7 @@
             }];
         }
     }
-    NSLog(@"清除的数组个数：%zd",temAttay.count);
+    
     if (temAttay.count == 0) {return;}
     if (isContainCurrentInfo) {
         [self.player pause];
@@ -690,7 +688,7 @@
             }
         }
     }
-    NSLog(@"temArray.count : %zd",temArray.count);
+    
     if (temArray.count == 0) return;
     [self.playList addObjectsFromArray:temArray];
 }

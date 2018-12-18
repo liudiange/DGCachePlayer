@@ -65,7 +65,7 @@
  @param error 错误信息
  */
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error{
-    NSLog(@"下载完成了");
+   
     if (self.cancel) return;
     
     if (error) {
@@ -92,17 +92,16 @@
     
     self.innerMyMimeType = response.MIMEType;
     if (self.cancel) return;
-    NSLog(@"response: %@",response);
+   
     completionHandler(NSURLSessionResponseAllow);
     NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)response;
     NSString * contentRange = [[httpResponse allHeaderFields] objectForKey:@"Content-Range"];
     NSString * fileLength = [[contentRange componentsSeparatedByString:@"/"] lastObject];
-    self.fileLenth = fileLength.integerValue > 0 ? fileLength.integerValue : response.expectedContentLength;
+    self.fileLenth = (NSUInteger)(fileLength.integerValue > 0 ? fileLength.integerValue : response.expectedContentLength);
     // 下载进度回调
     if([self.downloadManagerDelegate respondsToSelector:@selector(downloadManager:updateCacheProgressIsNeed:)]){
         [self.downloadManagerDelegate downloadManager:self updateCacheProgressIsNeed:self.isCache == YES ? YES : NO];
     }
-    NSLog(@"文件的长度 ：%zd",self.fileLenth);
 }
 
 /**

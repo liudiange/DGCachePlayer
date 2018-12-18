@@ -206,8 +206,6 @@
         }
     }else if ([keyPath isEqualToString:DGPlayerRate]){ // 播放速度 0 就是暂停了
         
-        NSLog(@"self.player.rate :%f",self.player.rate);
-        
         if (self.player.rate == 0) {
             self.innerCurrentPlayStatus = DGPlayerStatusPause;
             if ([self.DGDelegate respondsToSelector:@selector(DGPlayerChangeStatus:)]) {
@@ -220,7 +218,7 @@
             }
         }
     }else if([keyPath isEqualToString:DGPlayerBufferEmty]){ //没有足够的缓冲区了，监听播放播放器在缓冲区的状态
-        NSLog(@"没有足够的缓冲区了，监听播放播放器在缓冲区的状态");
+        
         self.innerCurrentPlayStatus = DGPlayerStatusBuffer;
         if ([self.DGDelegate respondsToSelector:@selector(DGPlayerChangeStatus:)]) {
             [self.DGDelegate DGPlayerChangeStatus:DGPlayerStatusBuffer];
@@ -604,7 +602,7 @@
             }];
         }
     }
-    NSLog(@"清除的数组个数：%zd",temAttay.count);
+    
     if (temAttay.count == 0) {return;}
     if (isContainCurrentInfo) {
         [self.player pause];
@@ -616,7 +614,7 @@
     }
     // 删除数组
     [self.playList removeObjectsInArray:temAttay];
-    NSLog(@"播放列表的个数 %zd",self.playList.count);
+    
 }
 /**
  添加一个新的歌单到播放列表
@@ -645,10 +643,10 @@
             }
         }
     }
-    NSLog(@"temArray.count : %zd",temArray.count);
+    
     if (temArray.count == 0) return;
     [self.playList addObjectsFromArray:temArray];
-    NSLog(@"播放列表的个数 %zd",self.playList.count);
+    
 }
 /**
  快进或者快退

@@ -71,12 +71,12 @@
         if (loadingRequest.dataRequest.requestedOffset >= self.downloadManager.requestOffset &&
             loadingRequest.dataRequest.requestedOffset <= self.downloadManager.requestOffset + self.downloadManager.cacheLength) {
             //数据已经缓存，则直接完成
-            NSLog(@"数据已经缓存，则直接完成");
+           
             [self haveCacheProcessRequestList];
         }else {
             //数据还没缓存，则等待数据下载；如果是Seek操作，则重新请求
             if (self.isSeek) {
-                NSLog(@"Seek操作，则重新请求");
+               
                 [self startNewLoadrequest:loadingRequest cache:NO];
             }
         }
@@ -177,13 +177,11 @@
     
     [self haveCacheProcessRequestList];
     if (need) {
-        NSLog(@"需要");
         CGFloat cacheProgrss = 1.0 * self.downloadManager.cacheLength /(self.downloadManager.fileLenth - self.downloadManager.requestOffset);
         if ([self.loaderDelegate respondsToSelector:@selector(loader:resourceLoaderCacheProgress:)]) {
             [self.loaderDelegate loader:self resourceLoaderCacheProgress:cacheProgrss];
         }
     }else{
-        NSLog(@"不需要");
         if ([self.loaderDelegate respondsToSelector:@selector(loader:resourceLoaderCacheProgress:)]) {
             [self.loaderDelegate loader:self resourceLoaderCacheProgress:0];
         }

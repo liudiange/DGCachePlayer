@@ -489,7 +489,6 @@
         self.currentModel = nil;
     }
     [self.playList removeObjectsInArray:needDeleteArray];
-    NSLog(@"播放列表的个数 : %zd -- 删除数组的个数: %zd",self.playList.count,needDeleteArray.count);
 }
 /**
  添加一个新的歌单到播放列表
@@ -520,7 +519,7 @@
     }
     // 进行添加
     [self.playList addObjectsFromArray:needAddArray];
-    NSLog(@"播放列表的个数 : %zd -- 需要添加的数组的个数: %zd",self.playList.count,needAddArray.count);
+    
 }
 /**
  快进或者快退
@@ -665,7 +664,7 @@
         
     }else if([keyPath isEqualToString:DGPlayerRateKey]) {
         
-        NSLog(@"self.player.rate : %f",self.player.rate);
+        
         if (self.player.rate > 0) {
             self.innerPlayState = DGCacheVideoStatePlay;
             if ([self.DGCacheVideoDelegate respondsToSelector:@selector(DGCacheVideoPlayStatusChanged:)]) {
@@ -680,7 +679,7 @@
     }else if([keyPath isEqualToString:DGPlayerLoadTimeKey]) {
         
         if (!self.isNeedCache) {
-            NSLog(@"DGPlayerLoadTimeKey");
+           
             NSArray *array = self.playerItem.loadedTimeRanges;
             CMTimeRange timeRange = [array.firstObject CMTimeRangeValue];
             CGFloat startSeconds = CMTimeGetSeconds(timeRange.start);
@@ -715,7 +714,7 @@
         }
     }else if([keyPath isEqualToString:DGPlayerBufferEmty]) { //没有足够的缓冲器了 说明正在缓冲中
         
-        NSLog(@"没有足够的缓冲器了 说明正在缓冲中");
+       
         if (!self.isNeedCache) {
             self.innerPlayState = DGCacheVideoStateBuffer;
             if ([self.DGCacheVideoDelegate respondsToSelector:@selector(DGCacheVideoPlayStatusChanged:)]) {
