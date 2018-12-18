@@ -1,0 +1,6 @@
+framework module DGCacheMusicFramework {
+  umbrella header "DGCacheMusicFramework.h"
+
+  export *
+  module * { export * }
+}

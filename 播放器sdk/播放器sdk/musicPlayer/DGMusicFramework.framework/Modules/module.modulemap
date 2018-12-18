@@ -1,0 +1,6 @@
+framework module DGMusicFramework {
+  umbrella header "DGMusicFramework.h"
+
+  export *
+  module * { export * }
+}

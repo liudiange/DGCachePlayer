@@ -1,0 +1,6 @@
+framework module DGVideoFramework {
+  umbrella header "DGVideoFramework.h"
+
+  export *
+  module * { export * }
+}

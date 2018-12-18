@@ -1,0 +1,6 @@
+framework module DGCacheVideoFramework {
+  umbrella header "DGCacheVideoFramework.h"
+
+  export *
+  module * { export * }
+}
