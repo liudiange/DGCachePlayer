@@ -149,8 +149,15 @@
 ````
 ### 整体sdk的分布
 ![image.png](https://upload-images.jianshu.io/upload_images/7935076-3e31ac54990be654.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-- 拿一个视频缓存的文件介绍
+- 拿一个视频缓存的文件介绍（内部结构如下图）
+
 ![image.png](https://upload-images.jianshu.io/upload_images/7935076-d9070776217ccbd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+### 安装
+可以根据自己需求将sdk拖入到自己的项目中使用，然后自己定义model来继承我的model。不支持pod（制作这个麻烦）
+### 关于边下边播的更多详细解释 请看我的简书链接
+https://www.jianshu.com/p/709bd97fe1d8
+
+
 
 
 
